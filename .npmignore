@@ -1,0 +1,40 @@
+# Source control
+.git
+.gitignore
+
+# CI/CD
+.github
+
+# Documentation
+README.md
+LICENSE
+
+# Development files
+*.log
+.DS_Store
+*.local
+
+# Dependencies (will be installed post-install)
+node_modules
+**/node_modules
+
+# Build artifacts (if any)
+dist
+build
+
+# Test files
+**/__tests__
+**/*.test.js
+**/*.test.ts
+**/*.spec.js
+**/*.spec.ts
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Misc
+.env
+!.env.example
