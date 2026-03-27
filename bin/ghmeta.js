@@ -45,7 +45,7 @@ async function runDev() {
     log('   Please create a .env file with the following variables:', 'yellow');
     console.log();
     log('   METABASE_INSTANCE_URL=your_metabase_url', 'bright');
-    log('   METABASE_JWT_SHARED_SECRET=your_jwt_secret', 'bright');
+    log('   METABASE_API_KEY=api_key', 'bright');
     log('   METABASE_USER_EMAIL=your_user_email', 'bright');
     log('   ANTHROPIC_API_KEY=your_anthropic_api_key', 'bright');
     console.log();
