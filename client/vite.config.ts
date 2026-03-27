@@ -8,11 +8,11 @@ export default defineConfig(({ mode }) => {
     server: {
       port: parseInt(env.CLIENT_PORT || "3100"),
       proxy: {
-        "/api": `http://localhost:${env.SERVER_PORT || "3001"}`,
+        "/api": `http://localhost:${env.SERVER_PORT || "30100"}`,
       },
     },
     build: {
-      outDir: "dist",
+      outDir: "../server/public",
       emptyOutDir: true,
     },
   };

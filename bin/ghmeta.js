@@ -38,27 +38,27 @@ function logBanner() {
 async function runDev() {
   logBanner();
 
+  // Check if client is built
+  const publicPath = join(rootDir, 'public');
+  if (!existsSync(publicPath)) {
+    log('⚠️  Warning: Client not built!', 'yellow');
+    log('   Please run: npm run build', 'bright');
+    log('   Or run: cd client && npm run build', 'blue');
+    console.log();
+  }
+
   // Check if .env exists
   const envPath = join(rootDir, '.env');
   if (!existsSync(envPath)) {
     log('⚠️  Warning: .env file not found!', 'yellow');
-    log('   Please create a .env file with the following variables:', 'yellow');
+    log('   Please configure API keys in the Settings page after startup:', 'yellow');
     console.log();
-    log('   METABASE_INSTANCE_URL=your_metabase_url', 'bright');
-    log('   METABASE_API_KEY=api_key', 'bright');
-    log('   METABASE_USER_EMAIL=your_user_email', 'bright');
-    log('   ANTHROPIC_API_KEY=your_anthropic_api_key', 'bright');
+    log('   Required settings:', 'bright');
+    log('   - Metabase Instance URL', 'blue');
+    log('   - Metabase API Key', 'blue');
+    log('   - Anthropic API Key OR Zhipu API Key', 'blue');
     console.log();
-    log('   You can copy .env.example as a template:', 'yellow');
-    log('   cp .env.example .env', 'bright');
-    console.log();
-  }
-
-  // Check if client is built
-  const distPath = join(rootDir, 'client/dist');
-  if (!existsSync(distPath)) {
-    log('⚠️  Warning: Client not built!', 'yellow');
-    log('   Please run: npm run build', 'bright');
+    log('   Or create a .env file manually (see .env.example)', 'yellow');
     console.log();
   }
 

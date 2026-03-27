@@ -34,8 +34,17 @@ The CLI will automatically install dependencies on first run.
 ```sh
 git clone https://github.com/metabase/metabase-agent-api-demo.git
 cd metabase-agent-api-demo
+
+# Install server dependencies
+npm install
+
+# Install client dependencies and build
+cd client
 npm install
 npm run build
+cd ..
+
+# Start server
 npm start
 ```
 
@@ -96,17 +105,16 @@ Count users by country
 ## Development
 
 ```sh
-# Install dependencies
+# Install dependencies (root + client)
 npm install
+cd client && npm install && cd ..
 
 # Build client
 npm run build
+# or from client directory: cd client && npm run build
 
 # Start server
 npm start
-
-# Or run the CLI directly
-node bin/ghmeta.js
 ```
 
 ## Environment Variables
@@ -127,11 +135,15 @@ SERVER_PORT=30100
 ```
 ├── bin/
 │   └── ghmeta.js        # CLI entry point
-├── client/              # React frontend
+├── client/              # React frontend (separate package)
 │   ├── src/
 │   │   ├── App.tsx      # Main chat interface
 │   │   └── ConfigPage.tsx  # Settings page
-│   └── dist/            # Built assets
+│   ├── package.json     # Frontend dependencies
+│   └── vite.config.ts   # Vite config (builds to ../public)
+├── public/              # Built frontend assets (served by server)
+│   ├── index.html
+│   └── assets/
 └── server/              # Express backend
     └── src/
         ├── index.ts      # Server with API endpoints

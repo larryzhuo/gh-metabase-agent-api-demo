@@ -131,16 +131,16 @@ app.post("/api/chat", async (req, res) => {
   });
 });
 
-// Serve static files from client/dist
+// Serve static files from public
 import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distPath = path.resolve(__dirname, "../../client/dist");
-app.use(express.static(distPath));
+const publicPath = path.resolve(__dirname, "../public");
+app.use(express.static(publicPath));
 
 // SPA fallback - serve index.html for all non-API routes
 app.get("*", (_req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
+  res.sendFile(path.join(publicPath, "index.html"));
 });
 
 // Initialize and start server

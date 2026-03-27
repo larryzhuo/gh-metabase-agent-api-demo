@@ -17,10 +17,15 @@ LICENSE
 # Dependencies (will be installed post-install)
 node_modules
 **/node_modules
+client/node_modules
 
-# Build artifacts (if any)
+# Build artifacts (source builds to public, which IS included)
 dist
 build
+client/dist
+
+# Note: public/ IS included (built assets)
+# Note: client/src IS included (source code)
 
 # Test files
 **/__tests__

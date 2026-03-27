@@ -2,6 +2,7 @@
 .env*.local
 node_modules
 node_modules/
+client/node_modules
 build
 out
 *.log
@@ -11,3 +12,5 @@ out
 .idea
 *.pem
 .git
+dist
+client/dist
