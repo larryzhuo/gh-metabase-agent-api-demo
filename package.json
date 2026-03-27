@@ -1,6 +1,6 @@
 {
   "name": "ghmeta",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Metabase Agent API Demo - CLI tool for quick startup",
   "type": "module",
   "license": "MIT",
